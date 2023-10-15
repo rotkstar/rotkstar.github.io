@@ -51,76 +51,20 @@
 
       <!-- PROJECT HEADER -->
       <div id="project-header">
-          <!--
-            TODO
-
-            - Change the 'main-title' text to the name of your project
-            - Change the 'body-text' text to a short and sweet description of your project (maybe the same as the one on the project card)
-            - Change "desktop.jpeg" to the image filename you uploaded in the assets/images folder.
-          -->
-        <div class="main-title">Project Name</div>
-        <div class="body-text">A small description about the project goes here, get the reader hooked on the project and tell them why they should continue to read this page. Give it a sweet tagline.</div>
-        <image class="project-header-image" src="../assets/images/desktop.jpeg">
-      </div>
-
-      <!-- PROJECT DETAILS -->
-      <!--
-        TODO
-
-        - Change the 'subheader-text' to whatever header you want for project details
-        - Add paragraphs using the <div class="body-text"></div> elements in the "project-details-content"
-      -->
-      <div id="project-details">
-        <div class="subheader-text">Project Details / Background</div>
-        <div class="project-details-content">
-          <div class="body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique risus nec feugiat in fermentum. Sed id semper risus in hendrerit gravida. Placerat duis ultricies lacus sed. Id neque aliquam vestibulum morbi blandit cursus risus. Elit pellentesque habitant morbi tristique senectus et netus et. Elementum tempus egestas sed sed risus pretium quam. Nibh ipsum consequat nisl vel pretium lectus quam id leo. Vitae congue mauris rhoncus aenean vel elit.</div>
-          <div class="body-text">Vitae justo eget magna fermentum. Imperdiet nulla malesuada pellentesque elit eget gravida. Aliquet nec ullamcorper sit amet. Aliquet sagittis id consectetur purus. Ac tortor dignissim convallis aenean. Enim neque volutpat ac tincidunt vitae. Lobortis feugiat vivamus at augue. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Viverra orci sagittis eu volutpat. Massa tincidunt nunc pulvinar sapien et ligula. Donec enim diam vulputate ut.</div>
+        <div class="main-title">UMass Honors Thesis Project</div>
+				<div class="project-details-content">
+					<div class="body-text">Another project I took on during my time at UMass was my undergraduate honors thesis. For my research, I wanted to develop a machine learning application that reduced the duration of lecture recordings by cutting out unnecessary audio segments and splicing the remaining, meaningful segments together. Likewise, I began this thesis with an extensive literature review of various topics related to machine learning and its applications in audio signal processing.</div>
+					<div class="body-text">Afterwards, I initiated my own research by creating an audio dataset tailored specifically to one lecturer’s speech patterns, as using speech from multiple lecturers could confuse the model that I would eventually train. To do this, I isolated hundreds of audio clips, ranging from milliseconds to seconds in length from a series of lecture recordings on YouTube. Next, I labeled each segment as “speech” or “nonspeech” in the Audacity audio editing software. Speech segments were any uninterrupted string of spoken words containing meaning. Nonspeech segments, on the other hand, were clips containing non-semantic noises that the speaker made.  I then trained an SVM classifier with the isolated, labeled audio files produced by Audacity’s label creation functionality and the help of the pyAudioAnalysis open-source Python library. </div>
+          <div class="body-text">To evaluate my research results, I tested SVM’s ability to differentiate between speech and nonspeech clips it had not seen before against pre-labeled testing data, as well as by performing 10-fold cross-validation. I also employed the segmentation functions from pyAudioAnalysis to generate lecture audio trim points using this SVM classifier, before comparing with trim points that were generated for the same lecture by hand, through listening to the audio and manually marking unwanted segments. Overall, the SVM trained in this thesis obtained 90% accuracy in correctly identifying trim points for unwanted sounds in lecture audio. If you would like to access my full thesis manuscript, click
+          <a href="../assets/HonorsThesis.pdf"> here</a>!
+					</div>
         </div>
+				<div class="gallery-image-container">
+					<img src="../assets/images/HonorsPoster.jpg" class="gallery-image">
+				</div>
+
+				<!-- HTML !-->
       </div>
-
-      <!-- IMAGE GALLERY -->
-      <div id="project-gallery">
-        <!-- TODO - Change the 'subheader-text' to whatever you want the Gallery section header to say -->
-        <div class="subheader-text">Image Gallery</div>
-        <div class="project-gallery-content">
-            <!--
-              TODO
-
-              This is where the images in the gallery live. Here's a simple gallery image for you to copy:
-
-              Full Width Image:
-
-                <div class="gallery-image-container">
-                  <img src="../assets/images/IMAGE_NAME" class="gallery-image">
-                  <span class="image-caption">IMAGE_CAPTION</span>
-                </div>
-
-              Half Width Image:
-
-                <div class="gallery-image-container half-width">
-                  <img src="../assets/images/IMAGE_NAME" class="gallery-image">
-                  <span class="image-caption">IMAGE_CAPTION</span>
-                </div>
-
-              - To add an image to the this area, copy one of the above, paste it below this comment, and change the following:
-                  - IMAGE_NAME: the name of the image file in assets/images
-                  - IMAGE_CAPTION: to the caption of the image
-            -->
-            <div class="gallery-image-container half-width">
-              <img src="../assets/images/code.jpeg" class="gallery-image">
-              <span class="image-caption">Give your image a caption. People love context.</span>
-            </div>
-            <div class="gallery-image-container half-width">
-              <img src="../assets/images/sketchbook.jpeg" class="gallery-image">
-              <span class="image-caption">Give your image a caption. People love context.</span>
-            </div>
-            <div class="gallery-image-container">
-              <img src="../assets/images/camera.jpeg" class="gallery-image">
-              <span class="image-caption">Give your image a caption. People love context.</span>
-            </div>
-        </div>
-      </div>
-    </div>
 
     <!-- FOOTER -->
     <div id="footer">
