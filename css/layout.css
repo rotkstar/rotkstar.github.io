@@ -24,7 +24,7 @@ body {
   margin: 225px 425px;
   display: flex;
   flex-direction: column;
-  gap: 96px;
+  gap: 48px; /* Changed from 96px to 48px*/
 }
 
 
@@ -34,7 +34,7 @@ body {
 
 #portfolio-header {
   display: flex;
-  gap: 20px;
+  gap: 20px; 
   align-items: center;
 }
 
@@ -121,7 +121,7 @@ body {
 #project-header {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 16px; 
 }
 
 .project-header-image {
