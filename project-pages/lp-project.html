@@ -58,23 +58,19 @@
             - Change the 'body-text' text to a short and sweet description of your project (maybe the same as the one on the project card)
             - Change "desktop.jpeg" to the image filename you uploaded in the assets/images folder.
           -->
-        <div class="main-title">Project Name</div>
-        <div class="body-text">A small description about the project goes here, get the reader hooked on the project and tell them why they should continue to read this page. Give it a sweet tagline.</div>
-        <image class="project-header-image" src="../assets/images/desktop.jpeg">
-      </div>
-
-      <!-- PROJECT DETAILS -->
-      <!--
-        TODO
-
-        - Change the 'subheader-text' to whatever header you want for project details
-        - Add paragraphs using the <div class="body-text"></div> elements in the "project-details-content"
-      -->
-      <div id="project-details">
-        <div class="subheader-text">Project Details / Background</div>
-        <div class="project-details-content">
-          <div class="body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique risus nec feugiat in fermentum. Sed id semper risus in hendrerit gravida. Placerat duis ultricies lacus sed. Id neque aliquam vestibulum morbi blandit cursus risus. Elit pellentesque habitant morbi tristique senectus et netus et. Elementum tempus egestas sed sed risus pretium quam. Nibh ipsum consequat nisl vel pretium lectus quam id leo. Vitae congue mauris rhoncus aenean vel elit.</div>
-          <div class="body-text">Vitae justo eget magna fermentum. Imperdiet nulla malesuada pellentesque elit eget gravida. Aliquet nec ullamcorper sit amet. Aliquet sagittis id consectetur purus. Ac tortor dignissim convallis aenean. Enim neque volutpat ac tincidunt vitae. Lobortis feugiat vivamus at augue. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Viverra orci sagittis eu volutpat. Massa tincidunt nunc pulvinar sapien et ligula. Donec enim diam vulputate ut.</div>
+        <div class="main-title">Solar Powered, Battery Free Soil Moisture Sensor</div>
+				<div class="project-details-content">
+          <div class="body-text">This was the final group project for my class ECE 697LP - Design Principles for Low Power Embedded Systems, which I took during the spring semester of my senior year at UMass. In this course, we spent the first 12 weeks reading, presenting, and discussing recent academic papers on low power embedded systems. The class culminated in a final project in which we devised and prototyped a novel low power sensing application. </div>
+          <div class="body-text">My group had two motivations for this project. The first was to develop a sensing application powered by a solar cell for energy harvesting and a supercapacitor for energy storage. Batteries can be harmful to the environment, both in their production, through practices like lithium mining, and at the end of their lifetime, due to improper disposal. De Winkel et al. argue in their 2020 paper on the Battery-Free Gameboy that removing components of high environmental impact like batteries from systems without sacrificing usability is important [1]. Aside from the environmental aspect, the electrical characteristics of supercapacitors can be more favorable than batteries in certain applications. In Repurposing Cathodic Protection Systems as Reliable, in-situ, Ambient Batteries for Sensor Networks, Panuto et. al choose a supercapacitor over a battery for its allowance of wide voltage ranges and unlimited charge cycles [2]. These environmental and functional benefits of supercapacitors were the reason we wanted to power our sensing application in this way, as opposed to using a battery.
+          </div>
+					<div class="body-text">The second motivation for this project was to test the energy harvesting module available <a href="https://www.amazon.com/JESSINIE-Converter-Collector-Charging-Conversion/dp/B0BBLV85L8/?_encoding=UTF8&pd_rd_w=vomyv&content-id=amzn1.sym.bc5f3394-3b4c-4031-8ac0-18107ac75816&pf_rd_p=bc5f3394-3b4c-4031-8ac0-18107ac75816&pf_rd_r=VWBAPM4SYZFV57P64R8A&pd_rd_wg=EOU86&pd_rd_r=30598db6-b66d-4198-a088-dc25e9c16c1f&ref_=pd_gw_ci_mcx_mr_hp_atf_m"> here</a>. This module is designed around the Texas Instruments BQ25570, a chip that integrates a boost charger and buck converter for extracting energy from high output impedance sources like the solar cell used in this project [3]. Although the BQ25570 datasheet is well-written, the module’s technical documentation is almost nonexistent. Likewise, if we could discover and document how to use the module without damaging it, it could open the door to future 697LP projects that also wish to explore energy harvesting and intermittent power.
+          </div>
+					<div class="body-text">Our prototype revolved around a BQ25570 energy harvesting breakout board that uses solar energy to charge one internal 0.22 F and one external 10 F supercapacitor in parallel. Without a battery, it was important that the capacitors could power our low power device sufficiently, to allow for the intermittent sensing. We chose an ESP32 WROOM 32E development board for our microcontroller, which could function with an input voltage between 3-3.6V and could be easily programmed in Arduino.
+					</div>
+					<div class="body-text">A few modifications had to be made to the energy harvesting module in order for it to be better suited for our application. The first of which was altering the resistor values of the VOUT_SET voltage divider, which can be observed in the bottom middle of the schematic shown below. Out of the box, this divider was composed of a 1 MΩ resistor and a 887 kΩ, which resulted in a VOUT of 1.2 V. This was far too low for our application, so the 887 kΩ resistor, R8, was desoldered from the board and swapped for a 499 kΩ resistor, which resulted in a calculated VOUT of 3.635 V. As demonstrated in one of the demo videos, the module successfully outputted ~3.658 V after swapping out R8.
+					</div>
+					<div class="body-text">The image to the bottom right shows the proof of concept for our proposed system. The solar cell sits atop the stand and charges the EH module on the purple PCB below it. There are four header pins on the module; the EN and GND pins are jumpered together, as the BQ25570 turns on after the EN pin is pulled actively low. The V_OK pin was jumpered to the V_EN pin to disable the internal buck converter so the board could output our resistor-programmed voltage. The module has two more external connections, the first of which is to the 10 F supercapacitor on the top right portion of the breadboard. Once this capacitor is charged to ~3.5 volts, the module begins outputting a voltage to the ESP32 microcontroller, which is also on the breadboard. This MCU reads moisture sensor data and lights up one of the three LEDs accordingly. The demo video can be found <a href="https://www.youtube.com/shorts/NNln8f2C8yY"> here</a>.
+					</div>
         </div>
       </div>
 
@@ -107,7 +103,7 @@
                   - IMAGE_CAPTION: to the caption of the image
             -->
             <div class="gallery-image-container half-width">
-              <img src="../assets/images/EH_Schematic.jpeg" class="gallery-image">
+              <img src="../assets/images/EH_Schematic.JPG" class="gallery-image">
               <span class="image-caption">Circuit Schematic for the TI BQ25570 breakout module.</span>
             </div>
             <div class="gallery-image-container half-width">
@@ -116,6 +112,17 @@
             </div>
         </div>
       </div>
+
+			<!-- SOURCES -->
+			<div id="project-details">
+				<div class="subheader-text">Sources</div>
+				<div class="project-details-content">
+					<div class="body-text">[1]: <a href="https://dl.acm.org/doi/pdf/10.1145/3411839"> Battery-Free Game Boy</a></div>
+					<div class="body-text">[2]: <a href="https://dl.acm.org/doi/10.1145/3412382.3458277"> Repurposing Cathodic Protection Systems as Reliable, in-situ, Ambient Batteries for Sensor Networks</a></div>
+					<div class="body-text">[3]: <a href="https://www.ti.com/lit/ds/symlink/bq25570.pdf?ts=1684682790426&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FBQ25570"> Texas Instruments BQ25570 Datasheet</a></div>
+				</div>
+			</div>
+			
     </div>
 
     <!-- FOOTER -->
