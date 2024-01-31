@@ -15,9 +15,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-
-
 /* Main Page Layout */
 
 #main-content {
@@ -26,8 +23,6 @@ body {
   flex-direction: column;
   gap: 48px; /* Changed from 96px to 48px*/
 }
-
-
 
 
 /* Portfolio Header */
@@ -121,7 +116,6 @@ body {
 #project-header {
   display: flex;
   flex-direction: column;
-  gap: 16px; 
 }
 
 .project-header-image {
